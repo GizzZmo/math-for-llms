@@ -13,7 +13,7 @@
 
 **A structured, open-source curriculum covering 25 domains of mathematics essential for AI, Machine Learning, and Large Language Models — from foundational concepts to cutting-edge research.**
 
-[Get Started](#-quick-start) · [Roadmap](#-learning-roadmap) · [Chapters](#-chapters) · [Resources](#-resources) · [Contributing](#-contributing)
+[Get Started](#-quick-start) · [Roadmap](#-learning-roadmap) · [Chapters](#-chapters) · [Applications](#financial--causal-applications) · [Contributing](#-contributing)
 
 ---
 
@@ -39,7 +39,7 @@ This repository bridges that gap with a **learn-by-doing** approach:
 - **Real ML connections** — every concept links to practical AI applications
 - **Self-contained** — no prerequisites beyond basic algebra
 
-> _"The math you need depends on what you're building — this repo helps you find exactly that."_
+> *"The math you need depends on what you're building — this repo helps you find exactly that."*
 
 ---
 
@@ -49,7 +49,7 @@ Graph Neural Networks (Chapter 11) and Causal Inference (Chapter 22) come togeth
 
 ### Default Contagion and Credit Risk
 - Construct firm or counterparty graphs with accounting features on nodes and payment / supply-chain / interbank exposures on edges.
-- GATv2 (or GAT) layers learn dynamic attention so that a node’s embedding mixes its own fundamentals with k-hop spillover risk.
+- GATv2 (or GAT) layers learn dynamic attention so that a node’s embedding mixes its own fundamentals with *k*-hop spillover risk.
 - Downstream PD classifiers or risk scores improve over i.i.d. models; attention weights and GraphSHAP provide the explanations required by the EU AI Act (high-risk systems) and GDPR Article 22.
 
 See the full treatment in [Chapter 11 — Graph Neural Networks §12.6](11-Graph-Theory/05-Graph-Neural-Networks/notes.md#126-financial-networks-credit-risk-and-default-contagion).
@@ -62,6 +62,8 @@ See the full treatment in [Chapter 11 — Graph Neural Networks §12.6](11-Graph
 ### Why It Matters
 These techniques turn relational data into actionable, auditable risk signals and let institutions quantify the real incremental effect of interventions rather than mere correlations.
 
+---
+
 ## 🚀 Quick Start
 
 ```bash
@@ -71,7 +73,7 @@ cd math-for-llms
 
 # Set up the environment
 python3 -m venv .venv
-source .venv/bin/activate   # Windows: .venv\\Scripts\\Activate.ps1
+source .venv/bin/activate   # Windows: .venv\Scripts\Activate.ps1
 
 # Install dependencies
 pip install -r requirements.txt
@@ -102,204 +104,15 @@ The curriculum covers **25 domains** organized in **8 phases**. Each phase build
  │ Phase 1  │ ──▶ │   Phase 2   │ ──▶ │ Phase 3  │ ──▶ │   Phase 4    │
  │ Core     │     │ Probability │     │ Learning │     │ Deeper       │
  │ Math     │     │ & Stats     │     │ Engines  │     │ Theory       │
- └─────────┘     └─────────────┘     └──────────┘     └──────────────┘
+ └─────────┘     └──────────────┘     └──────────┘     └──────────────┘
                                                               │
-      ┌───────────────────────────────────────────────────────────────────────┘
+      ┌───────────────────────────────────────────────────────────────────────────┘
       ▼
  ┌──────────┐     ┌──────────┐     ┌──────────────┐     ┌──────────────┐
  │ Phase 5  │ ──▶ │ Phase 6  │ ──▶ │   Phase 7    │ ──▶ │   Phase 8    │
  │ ML Math  │     │ LLM Math │     │ Production   │     │ Research     │
  │          │     │          │     │ & Safety     │     │ Frontiers    │
  └──────────┘     └──────────┘     └──────────────┘     └──────────────┘
-```
-
----
-
-### Phase 1 — Core Math Foundations `Ch. 01 → 02 → 04 → 05`
-
-> The mathematical language everything else is built on.
-
-```
-① MATHEMATICAL FOUNDATIONS (Ch.01)
-├── Number Systems (ℕ ℤ ℚ ℝ ℂ)
-├── Sets & Logic
-├── Functions & Mappings
-├── Σ Summation & Product Notation
-├── Einstein Summation & Index Notation
-└── Proof Techniques (induction, contradiction, direct)
-        │
-        ├────────────────────────────────────────────────────┐
-        ▼                                          ▼
-② LINEAR ALGEBRA (Ch.02 + Ch.03)            ③ CALCULUS (Ch.04 + Ch.05)
-├── Vectors & Spaces                        ├── Limits & Continuity
-├── Matrix Operations                       ├── Derivatives & Differentiation
-├── Systems of Equations                    ├── Integration & Series
-├── Determinants & Rank                     ├── Partial Derivatives & Gradients
-├── Eigenvalues & Eigenvectors ★            ├── Jacobians & Hessians ★
-├── SVD ★                                   ├── Chain Rule → Backpropagation ★
-├── PCA                                     ├── Optimality Conditions
-├── Orthogonality & Norms                   └── Automatic Differentiation ★
-├── Positive Definite Matrices
-└── Matrix Decompositions (LU/QR/Cholesky)
-```
-
----
-
-### Phase 2 — Probabilistic Thinking `Ch. 06 → 07`
-
-> How to reason about uncertainty — the foundation of all ML inference.
-
-```
-④ PROBABILITY & STATISTICS (Ch.06 + Ch.07)
-├── Random Variables & Distributions
-├── Joint Distributions
-├── Expectation & Moments
-├── Concentration Inequalities
-├── Stochastic Processes
-├── Markov Chains ★
-├── Descriptive Statistics
-├── Estimation Theory & MLE
-├── Bayesian Inference ★
-├── Hypothesis Testing
-├── Time Series
-└── Regression Analysis
-```
-
----
-
-### Phase 3 — Making Models Learn `Ch. 08 → 09`
-
-> The algorithms that train every model and the theory behind loss functions.
-
-```
-⑤ OPTIMIZATION (Ch.08)                     ⑥ INFORMATION THEORY (Ch.09)
-├── Convex Optimization ★                  ├── Entropy (Shannon) ★
-├── Gradient Descent (SGD/Mini-batch) ★    ├── KL Divergence ★
-├── Second-Order Methods (Newton/BFGS)     ├── Mutual Information ★
-├── Constrained Optimization (KKT)         ├── Cross-Entropy ★
-├── Stochastic Optimization ★              └── Fisher Information
-├── Optimization Landscape
-├── Adaptive LR (Adam / RMSProp) ★
-├── Regularization (L1/L2/Dropout)
-├── Hyperparameter Optimization
-└── Learning Rate Schedules
-```
-
----
-
-### Phase 4 — Deeper Theory `Ch. 03 → 10 → 11 → 12`
-
-> Specialized math that powers specific ML architectures.
-
-```
-⑦ NUMERICAL METHODS (Ch.10)                ⑧ GRAPH THEORY (Ch.11)
-├── Floating-Point Arithmetic              ├── Graph Basics & Representations
-├── Numerical Linear Algebra               ├── Graph Algorithms
-├── Numerical Optimization                 ├── Spectral Graph Theory ★
-├── Interpolation & Approximation          ├── Graph Neural Networks ★
-└── Numerical Integration                  └── Random Graphs
-
-⑨ FUNCTIONAL ANALYSIS (Ch.12)
-├── Normed Spaces
-├── Hilbert Spaces ★
-└── Kernel Methods (SVM / GP) ★
-```
-
----
-
-### Phase 5 — ML Math in Practice `Ch. 13 → 14`
-
-> The math that directly appears inside ML models.
-
-```
-                        ╔══════════════════╗
-                        ║  ML-SPECIFIC MATH  ║
-                        ╚══════════════════╝
-                                 │
-          ┌─────────────────────┬───────────────────────┐
-          ▼                      ▼                      ▼
-⑩ ML MATH CORE (Ch.13)   ⑪ DEEP LEARNING (Ch.14)   ⑫ RL (Ch.14)
-├── Loss Functions ★      ├── Neural Net Math ★      ├── MDP (State/Action)
-├── Activation Fns ★      ├── CNN & Convolution ★    ├── Bellman Equations ★
-├── Normalization ★       ├── RNN & LSTM Math ★      ├── Policy Gradient ★
-└── Sampling Methods      ├── Transformer ★          ├── Value Functions ★
-                          ├── Generative (VAE/GAN)   └── Actor-Critic
-                          └── Probabilistic Models
-```
-
----
-
-### Phase 6 — LLM Math `Ch. 15 → 16`
-
-> Everything that makes Large Language Models work under the hood.
-
-```
-                         ╔════════════════╗
-                         ║  MATH FOR LLMs   ║
-                         ╚════════════════╝
-                                  │
-       ┌─────────────────────────┬──────────────────────────┐
-       ▼                          ▼                          ▼
-⑬ ATTENTION & ARCH         ⑭ TRAINING AT SCALE       ⑮ DATA PIPELINE
-   (Ch.15)                    (Ch.15)                    (Ch.16)
-├── Tokenization            ├── Scaling Laws ★         ├── Data Format Standards
-├── Embedding Space         ├── Training at Scale      ├── JSONL Generation
-├── Attention Mech ★        ├── Efficient Attention    ├── Quality Checks
-├── Positional Enc ★        ├── MoE & Routing          ├── Dataset Assembly
-└── LM Probability ★       ├── Quantization           ├── Contamination & Dedup
-                            ├── Distillation           ├── Documentation
-                            └── RAG & Retrieval        └── Data Mixture Optimization
-```
-
----
-
-### Phase 7 — Production & Safety `Ch. 17 → 18 → 19`
-
-> Ship models responsibly — evaluate, align, and monitor.
-
-```
-⑯ EVALUATION (Ch.17)           ⑰ ALIGNMENT & SAFETY (Ch.18)     ⑱ PRODUCTION (Ch.19)
-├── Capability Benchmarks      ├── SFT Math ★                    ├── Data Versioning & Lineage
-├── Calibration & Uncertainty  ├── RLHF Math ★                   ├── Experiment Tracking
-├── Robustness &               ├── DPO / Preference Opt ★        ├── Feature Stores &
-│   Distribution Shift         ├── Policy & Guardrails           │   Data Contracts
-├── Error Analysis &           └── Human-in-the-Loop             ├── Model Serving &
-│   Ablations                      & Monitoring                  │   Inference Optimization
-└── A/B Testing &                                                ├── Monitoring, Drift
-    Experimentation                                              │   & Retraining
-                                                                 └── LLM Observability
-                                                                     & Guardrails
-```
-
----
-
-### Phase 8 — Research Frontiers `Ch. 20 → 21 → 22 → 23 → 24 → 25`
-
-> Advanced theory for research-level understanding.
-
-```
-⑲ FOURIER & SIGNALS (Ch.20)    ⑳ STATISTICAL LEARNING (Ch.21)   ⑴ CAUSAL INFERENCE (Ch.22)
-├── Fourier Series              ├── PAC Learning                  ├── Structural Causal Models
-├── Fourier Transform           ├── VC Dimension                  ├── Do-Calculus
-├── DFT & FFT                  ├── Bias-Variance Tradeoff        ├── Counterfactuals
-├── Convolution Theorem         ├── Generalization Bounds         └── Causal Discovery
-└── Wavelets                    └── Rademacher Complexity
-
-⑵ GAME THEORY (Ch.23)          ⑶ MEASURE THEORY (Ch.24)         ⑷ DIFF. GEOMETRY (Ch.25)
-├── Nash Equilibria             ├── Sigma-Algebras                ├── Manifolds
-├── Minimax Theorem             ├── Lebesgue Integration          ├── Riemannian Geometry
-├── Multi-Agent Systems         ├── Probability Measure Spaces    ├── Geodesics
-└── Adversarial Game Theory     └── Radon-Nikodym Theorem         └── Optimization on Manifolds
-```
-
-```
-╔═══════════════════════════════════════════════════════════════════════╗
-║                                                               ║
-║        ★  YOU ARE NOW A MATH-FOR-AI WIZARD  ★                 ║
-║                                                               ║
-║        ★ = Critical for ML/AI — prioritize these topics       ║
-║                                                               ║
-╚═══════════════════════════════════════════════════════════════════════╝
 ```
 
 ### Quick Reference — Learning Order
@@ -319,64 +132,87 @@ The curriculum covers **25 domains** organized in **8 phases**. Each phase build
 
 ## 📚 Chapters
 
-### Core Mathematics
+The repository is organized into 25 numbered chapters. Each chapter contains self-contained sections with `notes.md`, `theory.ipynb`, and `exercises.ipynb`.
 
 <details>
-<summary><b>01 · Mathematical Foundations</b> — Number systems, sets, logic, proofs</summary>
-<br>
+<summary><b>Core Foundations (01–05)</b></summary>
 
-| Topic                        | Description                                                       |
-| :--------------------------- | :---------------------------------------------------------------- |
-| Number Systems               | Natural, integer, rational, real, and complex numbers (N Z Q R C) |
-| Sets & Logic                 | Set operations, propositional logic, quantifiers                  |
-| Functions & Mappings         | Domain, range, injectivity, surjectivity, composition             |
-| Summation & Product Notation | Sigma/Pi notation, index manipulation                             |
-| Einstein Summation           | Index notation used in tensor operations                          |
-| Proof Techniques             | Induction, contradiction, direct proof, contrapositive            |
+- **01 Mathematical Foundations** — Number systems, sets, logic, functions, summation, Einstein notation, proofs
+- **02 Linear Algebra Basics** — Vectors, matrices, systems of equations, rank, determinants
+- **03 Advanced Linear Algebra** — Eigenvalues, SVD, PCA, positive definite matrices, decompositions
+- **04 Calculus Fundamentals** — Limits, derivatives, integration, series
+- **05 Multivariate Calculus** — Gradients, Jacobians, Hessians, chain rule, automatic differentiation
 
 </details>
 
 <details>
-<summary><b>02 · Linear Algebra Basics</b> — Vectors, matrices, systems of equations</summary>
-<br>
+<summary><b>Probability, Statistics & Optimization (06–09)</b></summary>
 
-| Topic                     | ML Connection                            |
-| :------------------------ | :--------------------------------------- |
-| Vectors & Spaces          | Feature representations, embeddings      |
-| Matrix Operations         | Forward propagation, transformations     |
-| Systems of Equations      | Linear regression (normal equations)     |
-| Determinants              | Change of variables in normalizing flows |
-| Matrix Rank               | Model capacity, low-rank approximations  |
-| Vector Spaces & Subspaces | Dimensionality, feature spaces           |
+- **06 Probability Theory** — Random variables, distributions, expectation, concentration, stochastic processes, Markov chains
+- **07 Statistics** — Estimation, MLE, Bayesian inference, hypothesis testing, time series, regression
+- **08 Optimization** — Convex optimization, gradient descent, second-order methods, Adam, regularization
+- **09 Information Theory** — Entropy, KL divergence, mutual information, cross-entropy
 
 </details>
 
 <details>
-<summary><b>03 · Advanced Linear Algebra</b> — Eigen decomposition, SVD, PCA</summary>
-<br>
+<summary><b>Deeper Theory & Graph Methods (10–12)</b></summary>
 
-| Topic                          | ML Connection                                 |
-| :----------------------------- | :-------------------------------------------- |
-| Eigenvalues & Eigenvectors     | PCA, spectral clustering, stability analysis  |
-| Singular Value Decomposition   | Recommender systems, dimensionality reduction |
-| Principal Component Analysis   | Feature extraction, data compression          |
-| Linear Transformations         | Neural network layers as transforms           |
-| Orthogonality & Orthonormality | Gram-Schmidt, decorrelated features           |
-| Matrix Norms                   | Regularization, operator bounds               |
-| Positive Definite Matrices     | Covariance matrices, kernel validity          |
-| Matrix Decompositions          | LU, QR, Cholesky — efficient solvers          |
+- **10 Numerical Methods** — Floating-point, numerical linear algebra, interpolation, integration
+- **11 Graph Theory** — Basics, representations, algorithms, spectral theory, **Graph Neural Networks**, random graphs
+- **12 Functional Analysis** — Normed spaces, Hilbert spaces, kernel methods
 
 </details>
 
 <details>
-<summary><b>04 · Calculus Fundamentals</b> — Limits, derivatives, integrals, series</summary>
-<br>
+<summary><b>ML & LLM Mathematics (13–16)</b></summary>
 
-| Topic                         | ML Connection                                  |
-| :---------------------------- | :--------------------------------------------- |
-| Limits & Continuity           | Convergence guarantees, activation smoothness  |
-| Derivatives & Differentiation | Gradient computation for all parameters        |
-| Integration                   | Probability densities, normalization constants |
-| Series & Sequences            | Taylor approximations, convergence analysis    |
+- **13 ML-Specific Math** — Loss functions, activations, normalization, sampling
+- **14 Math for Specific Models** — Neural nets, CNNs, RNNs/LSTMs, Transformers, generative models, RL
+- **15 Math for LLMs** — Attention, embeddings, positional encodings, scaling laws, efficient attention, MoE
+- **16 LLM Training Data Pipeline** — Formats, quality, deduplication, mixture optimization
 
 </details>
+
+<details>
+<summary><b>Production, Safety & Research Frontiers (17–25)</b></summary>
+
+- **17 Evaluation and Reliability** — Benchmarks, calibration, robustness, A/B testing
+- **18 Alignment and Safety** — SFT, RLHF, DPO, guardrails
+- **19 Production ML and MLOps** — Versioning, tracking, serving, drift, observability
+- **20 Fourier Analysis and Signal Processing**
+- **21 Statistical Learning Theory** — PAC, VC dimension, bias-variance, generalization
+- **22 Causal Inference** — SCMs, do-calculus, counterfactuals, discovery
+- **23 Game Theory**
+- **24 Measure Theory**
+- **25 Differential Geometry**
+
+</details>
+
+---
+
+## Resources
+
+- [Notation Guide](docs/NOTATION_GUIDE.md) — authoritative notation used throughout
+- [Cheatsheet](docs/CHEATSHEET.md) — every formula that actually matters
+- [ML Math Map](docs/ML_MATH_MAP.md) — concept → model / paper mapping
+- [Contributing Guide](CONTRIBUTING.md) — quality standards for notes, notebooks, and exercises
+- [Code of Conduct](CODE_OF_CONDUCT.md)
+
+---
+
+## Contributing
+
+Contributions are welcome. Please read [CONTRIBUTING.md](CONTRIBUTING.md) before opening a pull request. The quality bar is high: graduate-level notes, interactive notebooks, and graded exercises.
+
+---
+
+## License
+
+This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.
+
+---
+
+## Acknowledgments
+
+This curriculum builds on the excellent structure and content originally developed in the RiazML/math-for-llms repository and has been extended with additional applications in financial networks and causal inference.
