@@ -43,15 +43,24 @@ This repository bridges that gap with a **learn-by-doing** approach:
 
 ---
 
-## Financial & Causal Applications Highlight
+## Financial & Causal Applications
 
-Graph Neural Networks (Chapter 11) combined with Causal Inference (Chapter 22) enable modeling of **default contagion** and **heterogeneous treatment effects** in financial networks:
+Graph Neural Networks (Chapter 11) and Causal Inference (Chapter 22) come together for high-stakes financial applications where relational structure and interventional effects both matter.
 
-- Firm/counterparty nodes + payment/supply-chain edges → GATv2 embeddings that capture k-hop spillover risk.
-- Graph embeddings as covariates inside Double/Debiased Machine Learning for policy evaluation (liquidity support, credit-line adjustments).
-- Attention and GraphSHAP explanations for regulatory compliance (EU AI Act, GDPR Art. 22).
+### Default Contagion and Credit Risk
+- Construct firm or counterparty graphs with accounting features on nodes and payment / supply-chain / interbank exposures on edges.
+- GATv2 (or GAT) layers learn dynamic attention so that a node’s embedding mixes its own fundamentals with k-hop spillover risk.
+- Downstream PD classifiers or risk scores improve over i.i.d. models; attention weights and GraphSHAP provide the explanations required by the EU AI Act (high-risk systems) and GDPR Article 22.
 
-See [11-Graph-Theory/05-Graph-Neural-Networks](11-Graph-Theory/05-Graph-Neural-Networks/notes.md#126-financial-networks-credit-risk-and-default-contagion) and the cross-reference in Chapter 22.
+See the full treatment in [Chapter 11 — Graph Neural Networks §12.6](11-Graph-Theory/05-Graph-Neural-Networks/notes.md#126-financial-networks-credit-risk-and-default-contagion).
+
+### Causal Policy Evaluation
+- Use the same GNN embeddings as rich covariates inside Double/Debiased Machine Learning estimators.
+- Estimate heterogeneous treatment effects of liquidity support, credit-line adjustments, or regulatory interventions while controlling for selection bias induced by network position.
+- Cross-reference: [Chapter 22 — Structural Causal Models](22-Causal-Inference/01-Structural-Causal-Models/notes.md).
+
+### Why It Matters
+These techniques turn relational data into actionable, auditable risk signals and let institutions quantify the real incremental effect of interventions rather than mere correlations.
 
 ## 🚀 Quick Start
 
@@ -95,7 +104,7 @@ The curriculum covers **25 domains** organized in **8 phases**. Each phase build
  │ Math     │     │ & Stats     │     │ Engines  │     │ Theory       │
  └─────────┘     └─────────────┘     └──────────┘     └──────────────┘
                                                               │
-      ┌───────────────────────────────────────────────────────────────┘
+      ┌───────────────────────────────────────────────────────────────────────┘
       ▼
  ┌──────────┐     ┌──────────┐     ┌──────────────┐     ┌──────────────┐
  │ Phase 5  │ ──▶ │ Phase 6  │ ──▶ │   Phase 7    │ ──▶ │   Phase 8    │
@@ -119,7 +128,7 @@ The curriculum covers **25 domains** organized in **8 phases**. Each phase build
 ├── Einstein Summation & Index Notation
 └── Proof Techniques (induction, contradiction, direct)
         │
-        ├──────────────────────────────────────────────────┐
+        ├────────────────────────────────────────────────────┐
         ▼                                          ▼
 ② LINEAR ALGEBRA (Ch.02 + Ch.03)            ③ CALCULUS (Ch.04 + Ch.05)
 ├── Vectors & Spaces                        ├── Limits & Continuity
@@ -284,13 +293,13 @@ The curriculum covers **25 domains** organized in **8 phases**. Each phase build
 ```
 
 ```
-╔════════════════════════════════════════════════════════════════╗
+╔═══════════════════════════════════════════════════════════════════════╗
 ║                                                               ║
 ║        ★  YOU ARE NOW A MATH-FOR-AI WIZARD  ★                 ║
 ║                                                               ║
 ║        ★ = Critical for ML/AI — prioritize these topics       ║
 ║                                                               ║
-╚════════════════════════════════════════════════════════════════╝
+╚═══════════════════════════════════════════════════════════════════════╝
 ```
 
 ### Quick Reference — Learning Order
@@ -371,6 +380,3 @@ The curriculum covers **25 domains** organized in **8 phases**. Each phase build
 | Series & Sequences            | Taylor approximations, convergence analysis    |
 
 </details>
-
-<details>
-<summary><b>05 · Multivariate Calculus</b> — Gradients, Jacobians, back
